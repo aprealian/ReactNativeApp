@@ -11,28 +11,30 @@ import { Button, List, ListItem, Card } from '@ui-kitten/components';
 import { Dimensions } from "react-native";
 
 
+//Get screen dimension
 var width = Dimensions.get('window').width; //full width
 var height = Dimensions.get('window').height; //full height
 
-
+//It will generate rando color
 getRandomColor = data => {
     let colorValues = ["red", "blue", "green", "yellow"];
     return colorValues[Math.floor(Math.random() * colorValues.length)];
 }
 
-// getRandomColor(){
-//     let colorValues = ["red", "blue", "green", "yellow"];
-//     return colorValues[Math.floor(Math.random() * colorValues.length)];
-// }
-
-const data = new Array(50).fill({
+const data = new Array(4).fill({
     title: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
 });
 
-const dataSize = data.size
+getDataSize = input => {
+    //let colorValues = ["red", "blue", "green", "yellow"];
+    return data.length
+}
 
-var hours = new Date().getHours(); //To get the Current Hours
 
+//To get the Current Hours
+var hours = new Date().getHours(); 
+
+//Get greetings by hour input
 getGreeting = data => {
     let greetings = ["Morning", "Aftrenoon", "Evening", "Night"];
     if (data > 21){
@@ -64,11 +66,11 @@ const renderItem = ({ item, index }) => (
 );
 
 const Home = () => (
-    <View>
+    <View style={styles.main}>
         <ScrollView>
             <View style={styles.header}>
                 <Text style={styles.sectionTitle}>Good {this.getGreeting(hours)} Aprilian!</Text>
-                <Text style={styles.sectionSubTitle}>You have {data.size} tasks to complete</Text>
+                <Text style={styles.sectionSubTitle}>You have {this.getDataSize()} tasks to complete</Text>
                 <List
                     style={styles.container}
                     data={data}
@@ -77,7 +79,7 @@ const Home = () => (
             </View>
         </ScrollView>
 
-        <View style={{position: 'absolute', bottom: 10, width: width}}>
+        <View style={{position: 'absolute', bottom: 70, width: width}}>
             <Button type="primary" size="large" appearance="filled" style={styles.button}>Add New Task</Button>
         </View>
     </View>
@@ -85,6 +87,9 @@ const Home = () => (
 
 
 const styles = StyleSheet.create({
+    main: {
+        height: height
+    },
     header: {
       marginTop: 32,
       padding: 24,
