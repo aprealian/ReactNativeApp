@@ -12,7 +12,7 @@ import {
   StyleSheet,
   ScrollView,
   View,
-  Text,
+  // Text,
   StatusBar,
 } from 'react-native';
 
@@ -23,52 +23,56 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import * as eva from '@eva-design/eva';
+import { ApplicationProvider, Layout, Text } from '@ui-kitten/components';
+//import {HomeTab} from '../pages/HomeTab'
+//import HomeTab from './screens/home/HomeTab';
+//import HomeHeader from './screens/home/HomeHeader';
+import Home from './screens/home/Home';
 
 const App: () => React$Node = () => {
   return (
+    <ApplicationProvider {...eva} theme={eva.light}>
     <>
       <StatusBar barStyle="dark-content" />
+
       <SafeAreaView>
+        <Home/>
+      </SafeAreaView>
+      
+      
+      
+      
+      {/* <SafeAreaView>
+
+        <Home/>
+        
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
-          <Header />
+
+          
+
           {global.HermesInternal == null ? null : (
             <View style={styles.engine}>
               <Text style={styles.footer}>Engine: Hermes</Text>
             </View>
           )}
           <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
+          
+          
           </View>
         </ScrollView>
-      </SafeAreaView>
+
+
+      </SafeAreaView> */}
+
+
+
+
+
     </>
+    </ApplicationProvider>
   );
 };
 
