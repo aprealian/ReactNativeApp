@@ -29,6 +29,7 @@ import { ApplicationProvider, Layout, Text } from '@ui-kitten/components';
 //import HomeTab from './screens/home/HomeTab';
 //import HomeHeader from './screens/home/HomeHeader';
 import Home from './screens/home/Home';
+import Movie from './screens/movie/Movie';
 
 const App: () => React$Node = () => {
   return (
@@ -36,10 +37,12 @@ const App: () => React$Node = () => {
     <>
       <StatusBar barStyle="dark-content" />
 
-      <SafeAreaView>
+      {/* <SafeAreaView>
         <Home/>
-      </SafeAreaView>
+      </SafeAreaView> */}
       
+
+      <Movie/>
       
       
       

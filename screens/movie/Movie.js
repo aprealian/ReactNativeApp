@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+    ImageBackground,
     SafeAreaView,
     StyleSheet,
     ScrollView,
@@ -7,7 +8,7 @@ import {
     Text,
     StatusBar,
   } from 'react-native';
-import { Button, List, ListItem, Card } from '@ui-kitten/components';
+import { Button, List, ListItem, Card, Icon } from '@ui-kitten/components';
 import { Dimensions } from "react-native";
 
 
@@ -64,11 +65,35 @@ const renderItem = ({ item, index }) => (
     </View>
 );
 
-const Home = () => (
+
+const image = { uri: "https://wacohippodrometheatre.com/wp-content/uploads/2020/04/Bloodshot-Movie.jpg" };
+const logo = { uri: "https://cdn.clipart.email/d9e378be0e64d3cc143bf2823852b40e_netflix-logo-png-circle_256-255.png" };
+
+
+const Movie = () => (
     <View style={styles.main}>
         <ScrollView>
             <View style={styles.header}>
-                <Text style={styles.sectionTitle}>Good {this.getGreeting(hours)} Aprilian!</Text>
+                <View style={styles.banner}>
+                    <ImageBackground source={image} style={styles.bannerImage}>
+                        <View style={styles.bannerConatiner}>
+                            <View style={styles.menu}>
+                                <ImageBackground source={logo} style={{height: 30, width: 30}}>
+                                </ImageBackground>
+                                {/* <Icon
+                                    //style={styles.icon}
+                                    fill='#8F9BB3'
+                                    name='star'
+                                /> */}
+                                <Text style={styles.menuText}>TV Shows</Text>
+                                <Text style={styles.menuText}>Movies</Text>
+                                <Text style={styles.menuText}>My List</Text>
+                            </View>
+                            <Text style={styles.bannerTitle}>Blood Shoot!</Text>
+                        </View>
+                    </ImageBackground>
+                </View>
+                
                 <Text style={styles.sectionSubTitle}>You have {this.getDataSize()} tasks to complete</Text>
                 <List
                     style={styles.container}
@@ -78,7 +103,7 @@ const Home = () => (
             </View>
         </ScrollView>
 
-        <View style={{position: 'absolute', bottom: 70, width: width}}>
+        <View style={{position: 'absolute', bottom: 20, width: width}}>
             <Button type="primary" size="large" appearance="filled" style={styles.button}>Add New Task</Button>
         </View>
     </View>
@@ -90,8 +115,56 @@ const styles = StyleSheet.create({
         height: height
     },
     header: {
-      marginTop: 32,
-      padding: 24,
+      //marginTop: 32,
+      //padding: 24,
+    },
+    banner: {
+        marginTop: 0,
+        padding: 0,
+        minHeight: 350,
+        //backgroundImage: 'url(https://wacohippodrometheatre.com/wp-content/uploads/2020/04/Bloodshot-Movie.jpg)'
+    },
+    bannerImage: {
+        flex: 1,
+        resizeMode: "cover",
+        justifyContent: "center"
+    },
+    bannerConatiner: {
+        padding: 20,
+        paddingTop: 50,
+        height: '100%',
+        width: '100%',
+        backgroundColor: '#10011F3B',
+        position: 'absolute',
+        bottom: 0,
+        //alignItems: 'bottom'
+    },
+    bannerTitle: {
+        width: '100%',
+        fontSize: 42,
+        fontWeight: '800',
+        padding: 20,
+        color: '#FD6C35',
+        position: 'absolute',
+        bottom: 0,
+        textAlign: "center",
+    },
+    menu: {
+        //flex: 1,
+        flexDirection: 'row',
+        width: '100%',
+        //height: 10,
+        //fontSize: 16,
+        //justifyContent: 'center'
+        alignSelf: 'center',
+        alignItems: 'center',
+    },
+    menuText: {
+        width: 'auto',
+        marginHorizontal: 10,
+        fontSize: 16,
+        fontWeight: '600',
+        color: '#ffffff'
     },
     sectionTitle: {
       fontSize: 42,
@@ -160,4 +233,4 @@ const styles = StyleSheet.create({
   });
 
 
-export default Home;
+export default Movie;
